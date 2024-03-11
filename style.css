@@ -1,0 +1,29 @@
+.heading
+{
+    font-size: 25px;
+    width: 100%;
+    margin: 0px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.note
+{
+    font-size: 15px;
+    color: rgb(103, 64, 147);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body
+{
+    background-size: cover;
+}
+
+.div_speed
+{
+    float: right;
+}
+
+.div_volume
+{
+    float:left;
+}
