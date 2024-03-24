@@ -4,6 +4,9 @@ leftWristX = 0;
 leftWristY = 0;
 rightWristX  = 0;
 rightWristY = 0;
+leftWristScore = 0;
+song1 = "Aukaat.mp3";
+song2 = "Jatt_Vailly.mp3";
 
 function preLoad()
 {
@@ -26,6 +29,37 @@ function setup()
 function draw()
 {
     image(video, 0, 0, 600, 500);
+
+    fill('#7B68EE');
+    stroke('#6A5ACD')
+
+    if(scoreLeftWrist > 0.2)
+    {
+    circle(leftWristX, leftWristY, 15);
+    InNumberleftWristY = Number(leftWristY);
+    remove_decimals = floor(InNumberleftWristY);
+    volume = remove_decimals/500;
+    document.getElementById("volume").innerHTML = "Volume = "  + volume;
+    song.setVolume(volume);
+    rightWrist = "Aukaat.mp3".isPlaying();
+    leftWrist = "Jatt_vailly.mp3".isPlaying();
+    }
+    if(song1 = 'true')
+    {
+        rightWrist = "Aukaat.mp3".isPlaying();
+    }
+    else
+    {
+        rightWrist = "Aukaat.mp3".isPlaying(false);
+    }
+    if(song2 = 'true')
+    {
+        rightWrist = "Jatt_Vailly.mp3".isPlaying();
+    }
+    else
+    {
+        rightWrist = "Jatt_Vailly.mp3".isPlaying(false);
+    }
 }
 
 function modelLoaded()
@@ -37,6 +71,10 @@ function gotPoses()
 {
     if(results.length > 0)
     {
+        console.log(results);
+        scoreLeftWrist = results[0].pose.keypoints[9].score;
+        console.log("scoreLeftWrist = " + scoreLeftWrist);
+
         console.log(results);
         leftWristX = results[0].pose.leftWrist.x;
         leftWristX = results[0].pose.leftWrist.x;
